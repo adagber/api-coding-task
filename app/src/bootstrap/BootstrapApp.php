@@ -32,6 +32,7 @@ final class BootstrapApp
         require_once __DIR__ . '/dependencies.php';
         require_once __DIR__ . '/middlewares.php';
         require_once __DIR__ . '/routes.php';
+        require_once __DIR__ . '/../Lotr/Infrastructure/routes.php';
 
         return $app;
     }
