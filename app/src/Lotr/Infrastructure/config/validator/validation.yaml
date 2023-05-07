@@ -1,0 +1,26 @@
+App\Lotr\Application\DTO\CreateFactionDto:
+  properties:
+    factionName:
+      - NotBlank:
+          groups: [create, update]
+      - Type: string
+      - Length:
+          min: 2
+          max: 128
+          minMessage: 'Your faction name must be at least {{ limit }} characters long'
+          maxMessage: 'Your faction name cannot be longer than {{ limit }} characters'
+    description:
+      - NotBlank:
+          groups: [create, update]
+      - Type: string
+      - Length:
+          min: 5
+          minMessage: 'Your description must be at least {{ limit }} characters long'
+
+    leader:
+      - NotBlank:
+          groups: [create, update]
+      - Type: string
+      - Length:
+          min: 5
+          minMessage: 'Your leader must be at least {{ limit }} characters long'

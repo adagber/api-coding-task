@@ -16,7 +16,9 @@
     "slim/psr7": "^1.6",
     "doctrine/orm": "^2.15",
     "symfony/cache": "^6.2",
-    "uma/dic": "^3.0"
+    "uma/dic": "^3.0",
+    "symfony/validator": "^6.2",
+    "symfony/yaml": "^6.2"
   },
   "autoload": {
     "psr-4": {

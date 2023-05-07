@@ -2,7 +2,7 @@
 
 namespace App\Lotr\Domain\Model;
 
-use App\Lotr\Application\DTO\FactionDto;
+use App\Lotr\Application\DTO\CreateFactionDto;
 
 interface FactionRepositoryInterface
 {
@@ -10,11 +10,11 @@ interface FactionRepositoryInterface
 
     public function findAll();
 
-    public function create(FactionDto $data): Faction;
+    public function create(CreateFactionDto $data): Faction;
 
-    public function update(Faction $factions, FactionDto $data): Faction;
+    public function update(Faction $factions, CreateFactionDto $data): Faction;
 
-    public function patch(Faction $factions, FactionDto $data): Faction;
+    public function patch(Faction $factions, CreateFactionDto $data): Faction;
 
     public function delete(Faction $factions): void;
 

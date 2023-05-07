@@ -41,6 +41,9 @@ return [
             'connection' => [
                 'dsn' => 'mysql://root:root@db:3306/lotr?charset=utf8mb4',
             ]
+        ],
+        'validator' => [
+            'paths' => [APP_ROOT . '/src/Lotr/Infrastructure/config/validator/validation.yaml']
         ]
     ]
 ];

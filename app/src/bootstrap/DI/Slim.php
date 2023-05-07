@@ -2,11 +2,13 @@
 
 namespace App\bootstrap\DI;
 
-use App\Middleware\AuthMiddleware;
+use App\Lotr\Infrastructure\Validator\ValidatorInterface;
 use App\Security\AuthenticatorInterface;
+use App\Lotr\Infrastructure\Validator\Validator as AppValidator;
 use Psr\Container\ContainerInterface;
 use Slim\App;
 use Slim\Factory\AppFactory;
+use Symfony\Component\Validator\Validation;
 use UMA\DIC\ServiceProvider;
 
 /**
@@ -38,6 +40,19 @@ final class Slim implements ServiceProvider
             );
 
             return $app;
+        });
+
+        $container->set(ValidatorInterface::class, static function (ContainerInterface $container): ValidatorInterface
+        {
+            /** @var array $settings */
+            $settings = $container->get('settings');
+
+            $symfonyValidator = Validation::createValidatorBuilder()
+                ->addYamlMappings($settings['validator']['paths'])
+                ->getValidator()
+            ;
+
+            return new AppValidator($symfonyValidator);
         });
     }
 }

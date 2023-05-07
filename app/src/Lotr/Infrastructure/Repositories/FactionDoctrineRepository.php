@@ -2,14 +2,14 @@
 
 namespace App\Lotr\Infrastructure\Repositories;
 
-use App\Lotr\Application\DTO\FactionDto;
+use App\Lotr\Application\DTO\CreateFactionDto;
 use App\Lotr\Domain\Model\Faction;
 use App\Lotr\Domain\Model\FactionRepositoryInterface;
 use Doctrine\ORM\EntityRepository;
 
 final class FactionDoctrineRepository extends EntityRepository implements FactionRepositoryInterface
 {
-    public function create(FactionDto $data): Faction
+    public function create(CreateFactionDto $data): Faction
     {
         return new Faction(
             $data->getFactionName(),
@@ -18,12 +18,12 @@ final class FactionDoctrineRepository extends EntityRepository implements Factio
         );
     }
 
-    public function update(Faction $faction, FactionDto $data): Faction
+    public function update(Faction $faction, CreateFactionDto $data): Faction
     {
         return $faction->updateFromDto($data);
     }
 
-    public function patch(Faction $faction, FactionDto $data): Faction
+    public function patch(Faction $faction, CreateFactionDto $data): Faction
     {
         return $faction->patchFromDto($data);
     }
