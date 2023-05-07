@@ -1,7 +1,8 @@
 #!/usr/bin/env php
 <?php declare(strict_types=1);
 
-use App\DI\Doctrine;
+use App\bootstrap\BootstrapApp;
+use App\bootstrap\DI\Doctrine;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
 use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
@@ -14,7 +15,7 @@ $options = getopt("", [
 ]);
 
 $env = $options['env'] ?? null;
-$container = new Container(require \App\Lotr\Infrastructure\bootstrap\BootstrapApp::resolveSettingsFile($env));
+$container = new Container(require BootstrapApp::resolveSettingsFile($env));
 $container->register(new Doctrine());
 
 $entityManager = $container->get(EntityManagerInterface::class);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="App\Lotr\Infrastructure\Repositories\EquipmentDoctrineRepository" name="App\Lotr\Domain\Model\Equipment" table="equipments">
+    <indexes>
+      <index name="character_id" columns="character_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="128" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="type" type="string" column="type" length="128" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="madeBy" type="string" column="made_by" length="128" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="character" target-entity="Character" fetch="LAZY">
+      <join-columns>
+        <join-column name="character_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

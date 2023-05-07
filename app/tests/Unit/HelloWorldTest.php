@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-use App\Lotr\Infrastructure\bootstrap\BootstrapApp;
+use App\bootstrap\BootstrapApp;
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\ServerRequestFactory;
 

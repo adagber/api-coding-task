@@ -31,7 +31,7 @@ return [
             // List of paths where Doctrine will search for metadata.
             // Metadata can be either YML/XML files or PHP classes annotated
             // with comments or PHP8 attributes.
-            'metadata_dirs' => [APP_ROOT . '/config/doctrine'],
+            'metadata_dirs' => [APP_ROOT . '/src/Lotr/Infrastructure/config/doctrine'],
 
             // The parameters Doctrine needs to connect to your database.
             // These parameters depend on the driver (for instance the 'pdo_sqlite' driver
@@ -39,7 +39,7 @@ return [
             // Refer to the Doctrine documentation to see the full list
             // of valid parameters: https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html
             'connection' => [
-                'dsn' => 'mysql://root:root@127.0.0.1:3306/lotr?charset=utf8mb4',
+                'dsn' => 'mysql://root:root@db:3306/lotr?charset=utf8mb4',
             ]
         ]
     ]
