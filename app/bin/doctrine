@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
+use UMA\DIC\Container;
+use App\DI\Doctrine;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$options = getopt("", [
+        "env::"
+]);
+
+$env = $options['env'] ?? null;
+$container = new Container(require \App\BootstrapApp::resolveSettingsFile($env));
+$container->register(new Doctrine());
+
+$entityManager = $container->get(EntityManagerInterface::class);
+
+ConsoleRunner::run(
+    new SingleManagerProvider($entityManager)
+);
