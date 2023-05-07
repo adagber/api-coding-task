@@ -2,7 +2,7 @@
 
 namespace App\Lotr\Application\DTO;
 
-final class FactionDto
+final class CreateFactionDto
 {
 
     private $factionName;
