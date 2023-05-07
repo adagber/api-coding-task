@@ -14,7 +14,7 @@ use Slim\Routing\RouteCollectorProxy;
 $app->group('/factions', function (RouteCollectorProxy $group){
 
     $group->get('', ListFactionController::class)->setName('app_factions_list');
-    //$group->get('/{id:[0-9]+}', ShowFactionController::class)->setName('app_factions_show');
+    $group->get('/{id:[0-9]+}', ShowFactionController::class)->setName('app_factions_show');
     $group->post('', CreateFactionController::class)->setName('app_factions_create');
     //$group->put('/{id:[0-9]+}', UpdateFactionController::class)->setName('app_factions_update');
     //$group->patch('/{id:[0-9]+}', PartialUpdateFactionController::class)->setName('app_factions_patch');

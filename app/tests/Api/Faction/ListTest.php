@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Api\Factions;
+namespace Tests\Api\Faction;
 
 use Tests\ApiTestCase;
 
 final class ListTest extends ApiTestCase
 {
-    public function testGetFactions()
+    public function testListFactions()
     {
         $data = $this->requestJson('GET', '/factions');
         $this->assertCount(2, $data);

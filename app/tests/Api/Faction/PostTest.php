@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Api\Factions;
+namespace Tests\Api\Faction;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Tests\ApiTestCase;
