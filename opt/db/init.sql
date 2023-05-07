@@ -20,8 +20,7 @@ CREATE TABLE `equipments` (
   `made_by` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `character_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `character_id` (`character_id`),
-  CONSTRAINT `equipments_ibfk_1` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`)
+  KEY `character_id` (`character_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `characters`;
@@ -38,6 +37,10 @@ CREATE TABLE `characters` (
   CONSTRAINT `characters_ibfk_1` FOREIGN KEY (`equipment_id`) REFERENCES `equipments` (`id`),
   CONSTRAINT `characters_ibfk_2` FOREIGN KEY (`faction_id`) REFERENCES `factions` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `equipments` ADD CONSTRAINT `equipments_ibfk_1` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`);
+
+SET foreign_key_checks = 0;
 
 INSERT INTO `factions` (
   `id`,
@@ -80,3 +83,5 @@ INSERT INTO `characters` (
   1,
   1
 );
+
+SET foreign_key_checks = 1;
