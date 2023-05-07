@@ -1,7 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
-header('Content-type: application/json');
+use \App\BootstrapApp;
 
-echo json_encode([
-    "message" => "Hola Mundo"
-]);
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$app = BootstrapApp::getApp();
+$app->run();
