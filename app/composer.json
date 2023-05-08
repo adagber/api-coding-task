@@ -18,7 +18,8 @@
     "symfony/cache": "^6.2",
     "uma/dic": "^3.0",
     "symfony/validator": "^6.2",
-    "symfony/yaml": "^6.2"
+    "symfony/yaml": "^6.2",
+    "firebase/php-jwt": "^6.4"
   },
   "autoload": {
     "psr-4": {

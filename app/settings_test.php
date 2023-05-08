@@ -4,7 +4,11 @@ const APP_ROOT = __DIR__;
 
 return [
     'settings' => [
-
+        'security' => [
+            'jwt_secret' => '24985a4bcbc230e1b3389888b5427231',
+            'jwt_issuer' => $_SERVER['SERVER_NAME'] ?? 'localhost',
+            'jwt_expires_at' => 3600 //1 hour
+        ],
         'slim' => [
             // Returns a detailed HTML page with error details and
             // a stack trace. Should be disabled in production.
