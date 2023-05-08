@@ -2,7 +2,7 @@
 
 namespace App\Lotr\Domain\Model;
 
-use App\Lotr\Application\DTO\FactionDto;
+use App\Lotr\Application\DTO\CreateFactionDto;
 
 class Faction implements \JsonSerializable
 {
@@ -28,7 +28,7 @@ class Faction implements \JsonSerializable
         return $this->id;
     }
 
-    public function updateFromDto(FactionDto $dto): self
+    public function updateFromDto(CreateFactionDto $dto): self
     {
         $this->factionName = $dto->getFactionName();
         $this->description = $dto->getDescription();
@@ -37,7 +37,7 @@ class Faction implements \JsonSerializable
         return $this;
     }
 
-    public function patchFromDto(FactionDto $dto): self
+    public function patchFromDto(CreateFactionDto $dto): self
     {
         if(null !== $dto->getFactionName()){
             $this->factionName = $dto->getFactionName();
