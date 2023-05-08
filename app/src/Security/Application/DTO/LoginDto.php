@@ -2,9 +2,16 @@
 
 namespace App\Security\Application\DTO;
 
+use OpenApi\Attributes as OA;
+
+#[OA\Schema(
+    schema: 'LoginDto'
+)]
 final class LoginDto
 {
+    #[OA\Property()]
     private ?string $email;
+    #[OA\Property()]
     private ?string $password;
 
     use LoadDataFromArrayTrait;

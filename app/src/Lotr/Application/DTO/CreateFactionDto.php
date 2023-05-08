@@ -2,11 +2,18 @@
 
 namespace App\Lotr\Application\DTO;
 
+use OpenApi\Attributes as OA;
+
+#[OA\Schema(
+    schema: 'FactionDto'
+)]
 final class CreateFactionDto
 {
-
+    #[OA\Property()]
     private $factionName;
+    #[OA\Property()]
     private $description;
+    #[OA\Property()]
     private $leader;
 
     use LoadDataFromArrayTrait;

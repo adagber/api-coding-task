@@ -28,7 +28,7 @@ final class FactionDoctrineRepository extends EntityRepository implements Factio
         return $faction->patchFromDto($data);
     }
 
-    public function save(Faction $faction)
+    public function save(Faction $faction): void
     {
         $this->getEntityManager()->persist($faction);
         $this->getEntityManager()->flush($faction);

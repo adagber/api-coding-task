@@ -2,14 +2,20 @@
 
 namespace App\Security\Domain\Model;
 
+use OpenApi\Attributes as OA;
+
+#[OA\Schema(
+    schema: 'User'
+)]
 final class User implements UserInterface, \JsonSerializable
 {
+    #[OA\Property()]
     private int $id;
-
+    #[OA\Property()]
     private string $email;
 
     private string $hash;
-
+    #[OA\Property()]
     private \DateTimeImmutable $registeredAt;
 
     private array $roles = [];

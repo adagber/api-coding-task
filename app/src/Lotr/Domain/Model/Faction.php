@@ -3,16 +3,26 @@
 namespace App\Lotr\Domain\Model;
 
 use App\Lotr\Application\DTO\CreateFactionDto;
+use OpenApi\Attributes as OA;
 
+#[OA\Schema(
+    schema: 'Faction'
+)]
 class Faction implements \JsonSerializable
 {
 
+    #[OA\Property()]
     private int $id;
 
     public function __construct(
 
+        #[OA\Property()]
         private string $factionName,
+        #[OA\Property()]
         private string $description,
+        #[OA\Property(
+            description: 'The leader who is followed by the inhabitants of the faction'
+        )]
         private string $leader
     ){
 
