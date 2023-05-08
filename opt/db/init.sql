@@ -85,3 +85,38 @@ INSERT INTO `characters` (
 );
 
 SET foreign_key_checks = 1;
+
+DROP TABLE IF EXISTS `characters`;
+CREATE TABLE `users` (
+     `id` int(11) NOT NULL AUTO_INCREMENT,
+     `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+     `bcrypt_hash` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+     `registered_at` datetime NOT NULL COMMENT '(DC2Type:datetimetz_immutable)',
+     `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
+     PRIMARY KEY (`id`),
+     UNIQUE KEY `UNIQ_1483A5E9E7927C74` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `users` (
+    `email`,
+    `bcrypt_hash`,
+    `registered_at`,
+    `roles`
+) VALUES (
+     'user@gmail.com',
+     '$2y$10$QiRR7kDPO/bQOoeUiN.1TeKKgK9Bqksb2Ph1sVY7oe.fcU9559sTe', #Password -> 1234
+     NOW(),
+     'a:1:{i:0;s:9:"USER_ROLE";}'
+ );
+
+INSERT INTO `users` (
+    `email`,
+    `bcrypt_hash`,
+    `registered_at`,
+    `roles`
+) VALUES (
+     'admin@gmail.com',
+     '$2y$10$QiRR7kDPO/bQOoeUiN.1TeKKgK9Bqksb2Ph1sVY7oe.fcU9559sTe', #Password -> 1234
+     NOW(),
+     'a:1:{i:0;s:10:"USER_ADMIN";}'
+ );
