@@ -32,7 +32,7 @@ final class User implements UserInterface, \JsonSerializable
         return $this->email;
     }
 
-    public function getRegisteredAt(): DateTimeImmutable
+    public function getRegisteredAt(): \DateTimeImmutable
     {
         return $this->registeredAt;
     }

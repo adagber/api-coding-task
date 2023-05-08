@@ -50,7 +50,10 @@ return [
             ]
         ],
         'validator' => [
-            'paths' => [APP_ROOT . '/src/Lotr/Infrastructure/config/validator/validation.yaml']
+            'paths' => [
+                APP_ROOT . '/src/Lotr/Infrastructure/config/validator/validation.yaml',
+                APP_ROOT . '/src/Security/Infrastructure/config/validator/validation.yaml'
+            ]
         ]
     ]
 ];

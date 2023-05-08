@@ -3,6 +3,8 @@
 namespace Tests;
 
 use App\bootstrap\BootstrapApp;
+use App\Security\Domain\Auth\AuthenticatorInterface;
+use App\Security\Domain\Model\UserRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 use Slim\App;
 use Slim\Psr7\Factory\ServerRequestFactory;
@@ -56,5 +58,42 @@ class ApiTestCase extends TestCase
 
         $body = $this->requestBody($method, $uri, $headers, $bodyRequest);
         return json_decode($body, true);
+    }
+
+    protected function requestJsonWithAuth(string $email, string $method, string $uri, array $headers = [], null|array|object $bodyRequest = null): array
+    {
+
+        return $this->requestJson(
+            $method,
+            $uri,
+            array_merge(
+                $this->getAuthHeader($email),
+                $headers
+            ),
+            $bodyRequest);
+    }
+
+    protected function getUserToken(string $email): ?string
+    {
+        /** @var AuthenticatorInterface $auth */
+        $auth = self::getContainer()->get(AuthenticatorInterface::class);
+
+        /** @var UserRepositoryInterface $userRepository */
+        $userRepository = self::getContainer()->get(UserRepositoryInterface::class);
+
+        $user = $userRepository->findOneByUsername($email);
+
+        if(!$user){
+
+            return null;
+        }
+
+        return $auth->encode($user);
+    }
+
+    protected function getAuthHeader(string $email): array
+    {
+        $token = $this->getUserToken($email);
+        return ['Authorization' => 'Bearer '.$token];
     }
 }
