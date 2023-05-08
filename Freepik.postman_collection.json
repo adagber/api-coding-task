@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "6908965b-867e-4501-a458-f52170cb8021",
+		"name": "Freepik",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15747446",
+		"_collection_link": "https://dark-zodiac-656549.postman.co/workspace/Team-Workspace~a668d38c-918a-4248-8bc9-5473a5429c01/collection/15747446-6908965b-867e-4501-a458-f52170cb8021?action=share&creator=15747446&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Factions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/factions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"factions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/factions/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"factions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIwLjAuMC4wIiwiaWF0IjoxNjgzNTYyNzk2LCJleHAiOjE2ODM1NjYzOTYsInVzZXJuYW1lIjoiYWRtaW5AZ21haWwuY29tIn0.POEYQ4P31O3ZbZ4xrwTVyWUTSbqHsokvm_CTLpAkaCI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"factionName\": \"Lothlorien\",\n    \"description\": \"Lothlórien es un reino mágico habitado por elfos sabios y poderosos, conocido también como el Bosque Dorado.\",\n    \"leader\": \"Galadriel\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/factions/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"factions",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faction",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"leader\": \"Legolas\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/factions/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"factions",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIwLjAuMC4wIiwiaWF0IjoxNjgzNTYyNzk2LCJleHAiOjE2ODM1NjYzOTYsInVzZXJuYW1lIjoiYWRtaW5AZ21haWwuY29tIn0.POEYQ4P31O3ZbZ4xrwTVyWUTSbqHsokvm_CTLpAkaCI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/factions/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"factions",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Factions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIwLjAuMC4wIiwiaWF0IjoxNjgzNTU4Mjg5LCJleHAiOjE2ODM1NjE4ODksInVzZXJuYW1lIjoiYWRtaW5AZ21haWwuY29tIn0.zUMwJ2X_9yAVkmdDXFbLLYMSO3ehN7xpH-fHCuRjVrI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"factionName\": \"El bosque sombrío\",\n    \"description\": \"El Bosque Sombrío es un bosque oscuro y peligroso ubicado al este de las Montañas Nubladas en la Tierra Media, donde habitan arañas gigantes y otros peligros mortales.\",\n    \"leader\": \"Ella Laraña\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/factions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"factions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIwLjAuMC4wIiwiaWF0IjoxNjgzNTQwMDM1LCJleHAiOjE2ODM1NDM2MzUsInVzZXJuYW1lIjoidXNlckBnbWFpbC5jb20ifQ.SlylYLztlUS0SIr1rKQQbyIKgDkMZwURry1yXSZVnpA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
