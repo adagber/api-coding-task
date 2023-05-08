@@ -23,8 +23,7 @@ final class PostTest extends ApiTestCase
 
     public function testPostFactions()
     {
-
-        $data = $this->requestJson('POST', '/factions', [], [
+        $data = $this->requestJsonWithAuth('admin@gmail.com', 'POST', '/factions', [], [
             'factionName' => 'My test faction name',
             'description' => 'Lorem ipsum...',
             'leader' => 'follow the leader'
@@ -47,7 +46,7 @@ final class PostTest extends ApiTestCase
     public function testInvalidPostFactions()
     {
 
-        $data = $this->requestJson('POST', '/factions', [], [
+        $data = $this->requestJsonWithAuth('admin@gmail.com', 'POST', '/factions', [], [
             'description' => 'Lorem ipsum...',
             'leader' => 'follow the leader'
         ]);
@@ -63,7 +62,7 @@ final class PostTest extends ApiTestCase
 
         $this->assertEquals(422, $response->getStatusCode());
 
-        $data = $this->requestJson('POST', '/factions', [], [
+        $data = $this->requestJsonWithAuth('admin@gmail.com', 'POST', '/factions', [], [
             'factionName' => 'My test faction name',
             'description' => 'Lol',
             'leader' => 'follow the leader'

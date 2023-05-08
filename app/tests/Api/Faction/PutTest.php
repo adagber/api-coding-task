@@ -28,7 +28,7 @@ final class PutTest extends ApiTestCase
     {
         $faction = $this->getOneFaction();
 
-        $data = $this->requestJson('PUT', '/factions/'.$faction->getId(), [], [
+        $data = $this->requestJsonWithAuth('admin@gmail.com', 'PUT', '/factions/'.$faction->getId(), [], [
             'factionName' => 'My test faction name',
             'description' => 'Lorem ipsum...',
             'leader' => 'follow the leader'
@@ -43,7 +43,7 @@ final class PutTest extends ApiTestCase
 
         $faction = $this->getOneFaction();
 
-        $data = $this->requestJson('PUT', '/factions/'.$faction->getId(), [], [
+        $data = $this->requestJsonWithAuth('admin@gmail.com', 'PUT', '/factions/'.$faction->getId(), [], [
             'factionName' => 'My test faction name',
             'description' => 'Lol'
         ]);

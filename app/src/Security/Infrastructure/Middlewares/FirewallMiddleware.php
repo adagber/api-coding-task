@@ -20,6 +20,7 @@ final class FirewallMiddleware
         /** @var User $user */
         $user = $request->getAttribute('user');
         if(!$user){
+
             throw new HttpUnauthorizedException($request);
         }
 

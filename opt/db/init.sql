@@ -106,7 +106,7 @@ INSERT INTO `users` (
      'user@gmail.com',
      '$2y$10$QiRR7kDPO/bQOoeUiN.1TeKKgK9Bqksb2Ph1sVY7oe.fcU9559sTe', #Password -> 1234
      NOW(),
-     'a:1:{i:0;s:9:"USER_ROLE";}'
+     'a:1:{i:0;s:9:"ROLE_USER";}'
  );
 
 INSERT INTO `users` (
@@ -118,5 +118,5 @@ INSERT INTO `users` (
      'admin@gmail.com',
      '$2y$10$QiRR7kDPO/bQOoeUiN.1TeKKgK9Bqksb2Ph1sVY7oe.fcU9559sTe', #Password -> 1234
      NOW(),
-     'a:1:{i:0;s:10:"USER_ADMIN";}'
+     'a:1:{i:0;s:10:"ROLE_ADMIN";}'
  );

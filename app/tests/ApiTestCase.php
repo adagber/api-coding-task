@@ -60,7 +60,7 @@ class ApiTestCase extends TestCase
         return json_decode($body, true);
     }
 
-    protected function requestJsonWithAuth(string $email, string $method, string $uri, array $headers = [], null|array|object $bodyRequest = null): array
+    protected function requestJsonWithAuth(string $email, string $method, string $uri, array $headers = [], null|array|object $bodyRequest = null): ?array
     {
 
         return $this->requestJson(

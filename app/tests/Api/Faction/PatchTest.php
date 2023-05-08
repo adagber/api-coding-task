@@ -28,7 +28,7 @@ final class PatchTest extends ApiTestCase
     {
         $faction = $this->getOneFaction();
 
-        $data = $this->requestJson('PATCH', '/factions/'.$faction->getId(), [], [
+        $data = $this->requestJsonWithAuth('admin@gmail.com', 'PATCH', '/factions/'.$faction->getId(), [], [
             'leader' => 'follow the leader'
         ]);
 
@@ -41,7 +41,7 @@ final class PatchTest extends ApiTestCase
 
         $faction = $this->getOneFaction();
 
-        $data = $this->requestJson('PATCH', '/factions/'.$faction->getId(), [], [
+        $data = $this->requestJsonWithAuth('admin@gmail.com', 'PATCH', '/factions/'.$faction->getId(), [], [
             'factionName' => 'My test faction name',
             'description' => 'Lol'
         ]);

@@ -28,7 +28,7 @@ final class DeleteTest extends ApiTestCase
     {
 
         $faction = $this->getOneFaction();
-        $data = $this->requestJson('DELETE', '/factions/'.$faction->getId());
+        $data = $this->requestJsonWithAuth('admin@gmail.com', 'DELETE', '/factions/'.$faction->getId());
 
         $this->assertNull($data);
         $this->assertEquals(204, $this->getLastResponse()->getStatusCode());
