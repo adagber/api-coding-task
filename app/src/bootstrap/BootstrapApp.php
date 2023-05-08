@@ -57,6 +57,5 @@ final class BootstrapApp
         $file = $path.'/settings_'.strtolower($env).'.php';
 
         return file_exists($file) ? $file : $defaultFile;
-        return $path.'/settings.php';
     }
 }

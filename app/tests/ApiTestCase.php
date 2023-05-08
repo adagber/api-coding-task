@@ -96,4 +96,15 @@ class ApiTestCase extends TestCase
         $token = $this->getUserToken($email);
         return ['Authorization' => 'Bearer '.$token];
     }
+
+    public function removeDir(string $dir): bool
+    {
+        foreach(glob($dir . '/*') as $file) {
+            if(is_dir($file))
+                $this->removeDir($file);
+            else
+                unlink($file);
+        }
+        return rmdir($dir);
+    }
 }

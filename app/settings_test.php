@@ -51,6 +51,13 @@ return [
         ],
         'validator' => [
             'paths' => [APP_ROOT . '/src/Lotr/Infrastructure/config/validator/validation.yaml']
+        ],
+        'cache' => [
+            'filesystem_adapter' => [
+                'namespace' => '',
+                'default_life_time' => 3600,  //1 hour (time in seconds)
+                'directory' => APP_ROOT.'/var/cache/test'
+            ]
         ]
     ]
 ];
